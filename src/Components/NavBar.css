@@ -1,0 +1,134 @@
+.desktop{
+    display: flex;
+    background-color: #ffffff;
+    justify-content: space-between;
+    color: rgb(0, 0, 0);
+    position: fixed;
+    width: 100%;
+    height: 3.5rem;
+    padding: 0% 2.5% 0% 1.5%;
+    z-index: 1;
+}
+
+.logo-div{
+    display: flex;
+    align-items: center;
+    width: 25%;
+}
+
+.logo{
+    width: 2.2rem;
+    cursor: pointer;
+    background-color: black;
+    border-radius: 50%;
+    margin-right: 3%;
+}
+
+.icon{
+    width: 1.4rem;
+    margin-left: 10px;
+}
+
+.login-btn{
+    font-weight: bolder;
+    font-size: small;
+    margin-left: 30%;
+}
+
+.header{
+    font-weight: bolder;
+    cursor: pointer;
+    line-height: 95%;
+}
+
+.links-div{
+    display: flex;
+    align-items: center;
+}
+
+.btn-active{
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    transition: 0.2s ease-in-out;
+    color: rgb(0, 0, 0);
+}
+
+.btn-inactive{
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    transition: 0.2s ease-in-out;
+    color: rgb(168, 168, 168);
+}
+
+.btn-active:hover, .btn-inactive:hover{
+    color: rgb(121, 51, 201);
+}
+
+
+.mobile{
+    display: none;
+}
+
+
+@media (max-width: 768px){
+    .desktop{
+        display: none;
+    }
+    .mobile{
+        display: flex;
+        background-color: #ffffff;
+        justify-content: space-between;
+        color: rgb(0, 0, 0);
+        position: fixed;
+        width: 100%;
+        height: 3.5rem;
+        padding: 0% 1.5% 0% 1.5%;
+        z-index: 1;
+    }
+    .navLink{
+        color: rgb(62, 62, 141); 
+      }
+
+    .logo-div{
+        display: flex;
+        align-items: center;
+        width: 40%;
+    }
+    
+    .logo{
+        width: 2.2rem;
+        cursor: pointer;
+        background-color: black;
+        border-radius: 50%;
+        margin-right: 5%;
+    }
+    .drawer-div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .drawer{
+        color: black;
+        padding: 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 160px;
+        margin-right: 1rem;
+        background-color: white;
+        border-radius: 10%;
+    }
+    .icon-mobile{
+        width: 1.5rem;
+        margin-bottom: 30%;
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+    .loginM-btn{
+        font-weight: bold;
+        color: black;
+    }
+}
