@@ -3,6 +3,7 @@ import NavBar from '../Components/NavBar'
 import './Login.css'
 import Google from '../assets/google.png'
 import wall1 from '../assets/wall1.jpg'
+import { Link } from 'react-router-dom'
 
 function Login() {
 
@@ -23,7 +24,7 @@ function Login() {
           <div className='google-div'>
              <img src={Google} className='google'/>
           </div>
-          <label className='sign-up'>Do not have an account. Click here</label>
+          <label className='sign-up'>Do not have an account. <Link to="/signup">Click here</Link></label>
         </div>
       </div>
     </div>
