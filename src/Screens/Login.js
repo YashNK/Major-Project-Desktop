@@ -1,35 +1,66 @@
-import React, { useState } from 'react'
-import NavBar from '../Components/NavBar'
-import './Login.css'
-import Google from '../assets/google.png'
-import wall1 from '../assets/wall1.jpg'
-import { Link } from 'react-router-dom'
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { authContext } from '../App';
+import NavBar from '../Components/NavBar';
+import Google from '../assets/google.png';
+import './Login.css';
+import axios from 'axios';
 
 function Login() {
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const navigate = useNavigate();
+  const [authState, setAuthState] = useContext(authContext);
+
+  const onSubmit = (data) => {
+    console.log('Form data:', data);
+    axios.post('https://dull-cyan-marlin-kit.cyclic.app/api/login',data).then((response)=>{
+      console.log("logged in succesfully")
+      console.log(response.data.user.isAdmin)
+      localStorage.setItem("authenticated", true);
+      localStorage.setItem("token",response.data.token)
+      localStorage.setItem("isAdmin",response.data.user.isAdmin)
+      setAuthState(true)
+      navigate('/record');     
+    })
+    .catch(()=>{
+      console.log("something went wrong")
+      navigate("/login")
+    })
+    
+  };
 
   return (
     <>
-    <div className='container-div'>
-      <img src='https://images2.alphacoders.com/130/1308898.jpg' className='background-wallpaper'/>
-      <div className="inner">
-        <div className='form'>
-          <h1 className='login-header'>LOGIN</h1>
-          <label>Email:</label>
-          <input/>
-          <label>Password:</label>
-          <input/>
-          <button className='loginbtn'>Login</button>
-          <label className='or'>or</label>
-          <label className='or'>Login using</label>
-          <div className='google-div'>
-             <img src={Google} className='google'/>
+      <NavBar />
+      <div className='container-div'>
+        <img src='https://images2.alphacoders.com/130/1308898.jpg' className='background-wallpaper' alt='Background' />
+        <div className="inner">
+          <div className='form'>
+            <h1 className='login-header'>LOGIN</h1>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <label>Email:</label>
+              <input {...register('userEmail', { required: true })} />
+              {/* Display error message if email is not provided */}
+              {errors.email && <span className='error'>Email is required</span>}
+
+              <label>Password:</label>
+              <input type='password' {...register('userPassword', { required: true })} />
+              {/* Display error message if password is not provided */}
+              {errors.password && <span className='error'>Password is required</span>}
+              <button type='submit' className='loginbtn'>Login</button>
+            </form>
+            <label className='or'>or</label>
+            <label className='or'>Login using</label>
+            <div className='google-div'>
+              <img src={Google} className='google' alt='Google' />
+            </div>
+            <label className='sign-up'>Do not have an account. <Link to="/signup">Click here</Link></label>
           </div>
-          <label className='sign-up'>Do not have an account. <Link to="/signup">Click here</Link></label>
         </div>
       </div>
-    </div>
     </>
   )
 }
 
-export default Login
+export default Login;
