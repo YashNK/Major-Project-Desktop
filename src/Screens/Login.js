@@ -3,8 +3,11 @@ import NavBar from '../Components/NavBar'
 import './Login.css'
 import Google from '../assets/google.png'
 import wall1 from '../assets/wall1.jpg'
+import { useNavigate, useNavigation } from 'react-router-dom'
 
 function Login() {
+
+  const navigate = useNavigate()
 
   return (
     <>
@@ -17,7 +20,7 @@ function Login() {
           <input/>
           <label>Password:</label>
           <input/>
-          <button className='loginbtn'>Login</button>
+          <button onClick={()=>navigate('/dashboard')} className='loginbtn'>Login</button>
           <label className='or'>or</label>
           <label className='or'>Login using</label>
           <div className='google-div'>
