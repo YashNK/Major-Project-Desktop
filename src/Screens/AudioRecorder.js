@@ -1,11 +1,13 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import './AudioRecorder.css'; // Import the CSS file
+import { authContext } from '../App';
 
 const AudioRecorder = () => {
   const [recording, setRecording] = useState(false);
   const [audioBlob, setAudioBlob] = useState(null);
   const audioRef = useRef(null);
   const [mediaRecorder, setMediaRecorder] = useState(null);
+  const [authState, setAuthState] = useContext(authContext);
 
   const handleStartRecording = () => {
     if (!navigator.mediaDevices) {
@@ -78,6 +80,14 @@ const AudioRecorder = () => {
     audioRef.current.src = '';
   };
 
+  if(authState !== true){
+    return(
+        <div>
+           YASH Make an error page
+        </div>
+    )
+  }
+else{
   return (
     <div className="record-container">
       <div className='left-drawer'>
@@ -95,6 +105,7 @@ const AudioRecorder = () => {
       </div>
     </div>
   );
+}
 };
 
 export default AudioRecorder;
