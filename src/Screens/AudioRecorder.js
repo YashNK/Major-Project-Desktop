@@ -3,7 +3,7 @@ import './AudioRecorder.css'; // Import the CSS file
 import { authContext } from '../App';
 import { useNavigate } from 'react-router-dom';
 
-const AudioRecorder = () => {
+const AudioRecorder = ({setIsSelected}) => {
   const [recording, setRecording] = useState(false);
   const [audioBlob, setAudioBlob] = useState(null);
   const audioRef = useRef(null);
@@ -92,9 +92,7 @@ const AudioRecorder = () => {
         <button onClick={handlePlayAudio} disabled={!audioBlob}>Play</button>
         <button onClick={handleSaveAudio} disabled={!audioBlob}>Save</button>
         <button onClick={handleDeleteAudio} disabled={!audioBlob}>Delete</button>
-        <button onClick={()=>{
-          navigate('/PSS')
-        }}>Calculate PSS</button>
+        <button onClick={()=>setIsSelected(1)}>Calculate PSS</button>
         <audio ref={audioRef} controls />
       </div>
     </div>

@@ -8,9 +8,9 @@ const buttons = [
   "Record", "Pss"
 ] 
 
-const RenderComponent = ({index}) => {
+const RenderComponent = ({index, setIsSelected}) => {
   switch (index) {
-    case 0: return <AudioRecorder />
+    case 0: return <AudioRecorder setIsSelected={setIsSelected}/>
       break;
     case 1: return <PssCalculation />
       break;
@@ -22,7 +22,7 @@ function Dashboard() {
   return (
     <div className='dash-container'>
       <ButtonGroup buttons={buttons} isSelected={isSelected} setIsSelected={setIsSelected} />
-      <RenderComponent index={isSelected} />
+      <RenderComponent index={isSelected} setIsSelected={setIsSelected}/>
     </div>
   )
 }
