@@ -22,7 +22,7 @@ function Login() {
       localStorage.setItem("authenticated", true);
       localStorage.setItem("token",response.data.token)
       localStorage.setItem("isAdmin",response.data.user.isAdmin)
-      navigate('/record');     
+      navigate('/dashboard');     
     })
     .catch(()=>{
       console.log("something went wrong")
