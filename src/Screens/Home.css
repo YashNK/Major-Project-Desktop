@@ -121,6 +121,21 @@ section{
     justify-content: center;
 }
 
+.wrapper::-webkit-scrollbar {
+    width: 10px;
+}
+
+.wrapper::-webkit-scrollbar-track {
+    background-color: rgb(72, 105, 109);
+    -webkit-box-shadow: 0 0 6px rgba(245, 0, 0, 0.3); 
+    border-radius: 10px;
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
 
 @media (max-width: 768px) {
 
