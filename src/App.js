@@ -28,6 +28,7 @@ function App() {
         <Route path="/signup" element={<SignUp/>} />
         <Route path="/record" element={<AudioRecorder/>}/>
         <Route path="/dashboard" element={<Dashboard/>}/>
+        
       </Routes>
     </BrowserRouter>
     </authContext.Provider>

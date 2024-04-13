@@ -1,3 +1,12 @@
 .button-div{
     width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.selected-btn{
+    background-color: aqua;
+}
+.btn{
+    background-color: red;
 }

@@ -82,6 +82,7 @@ const AudioRecorder = () => {
 
  
   return (
+    <div className="record-container">
       <div className='right-drawer'>
         <button onClick={recording ? handleStopRecording : handleStartRecording}>
         {recording ? 'Stop Recording' : 'Start Recording'}
@@ -92,6 +93,7 @@ const AudioRecorder = () => {
         <button>Calculate PSS</button>
         <audio ref={audioRef} controls />
       </div>
+    </div>
   );
 };
 
