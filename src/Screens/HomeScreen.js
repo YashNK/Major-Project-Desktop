@@ -14,6 +14,7 @@ const HomeScreen = () => {
      <div className='wrapper'>
         <header>
           <img src='https://r2.erweima.ai/imgcompressed/compressed_fd7c731d6847d1cab97c6d7c1b408e59.webp' className='background'/>
+          {/* <img src='https://4kwallpapers.com/images/wallpapers/night-sky-colorful-3840x2160-12510.jpg' className='background' /> */}
           <div className='black-layer'></div>
           <h1 className='title'>BETTER SPEAK</h1>
           <p className='subtitle'>Welcome to BetterSpeak, are you ready to begin your journey with us.</p>

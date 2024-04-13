@@ -21,7 +21,7 @@ const SignUp = () => {
   return (
     <div className="signup-container">
       <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form className='f1' onSubmit={handleSubmit(onSubmit)}>
         <input
           type="text"
           {...register('userName', { required: true })}

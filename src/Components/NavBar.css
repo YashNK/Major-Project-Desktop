@@ -6,14 +6,15 @@
     position: fixed;
     width: 100%;
     height: 3.5rem;
-    padding: 0% 2.5% 0% 1.5%;
     z-index: 1;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 20%);
 }
 
 .logo-div{
     display: flex;
     align-items: center;
     width: 25%;
+    padding-left: 2%;
 }
 
 .logo{
@@ -32,18 +33,19 @@
 .login-btn{
     font-weight: bolder;
     font-size: small;
-    margin-left: 30%;
+    margin-left: 20%;
+    text-decoration: none;
 }
 
-.header{
-    font-weight: bolder;
+.nav-title{
     cursor: pointer;
-    line-height: 95%;
+    line-height: 100%;
+    font-size: medium;
 }
-
 .links-div{
     display: flex;
     align-items: center;
+    padding-right: 2%;
 }
 
 .btn-active{
@@ -52,6 +54,7 @@
     border-radius: 10px;
     transition: 0.2s ease-in-out;
     color: rgb(0, 0, 0);
+    text-decoration: none;
 }
 
 .btn-inactive{
@@ -60,6 +63,7 @@
     border-radius: 10px;
     transition: 0.2s ease-in-out;
     color: rgb(168, 168, 168);
+    text-decoration: none;
 }
 
 .btn-active:hover, .btn-inactive:hover{
@@ -94,7 +98,7 @@
     .logo-div{
         display: flex;
         align-items: center;
-        width: 40%;
+        width: 60%;
     }
     
     .logo{
@@ -104,14 +108,23 @@
         border-radius: 50%;
         margin-right: 5%;
     }
+    .bars{
+        width: 100%;
+        border: none;
+    }
+    .bars-btn{
+        border: none;
+        background-color: white;
+        width: 15%;
+    }
     .drawer-div{
         display: flex;
-        align-items: center;
-        justify-content: center;
+        align-items: right;
+        justify-content: end;
+        padding-right: 2%;
     }
     .drawer{
         color: black;
-        padding: 30%;
         display: flex;
         flex-direction: column;
         align-items: center;

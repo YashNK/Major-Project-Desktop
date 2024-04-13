@@ -79,16 +79,20 @@ const AudioRecorder = () => {
   };
 
   return (
-    <div className="container"> {/* Apply container class */}
-      <button onClick={recording ? handleStopRecording : handleStartRecording}>
+    <div className="record-container">
+      <div className='left-drawer'>
+        hi
+      </div>
+      <div className='right-drawer'>
+        <button onClick={recording ? handleStopRecording : handleStartRecording}>
         {recording ? 'Stop Recording' : 'Start Recording'}
-      </button>
-      <button onClick={handlePlayAudio} disabled={!audioBlob}>Play</button>
-      <button onClick={handleSaveAudio} disabled={!audioBlob}>Save</button>
-      <button onClick={handleDeleteAudio} disabled={!audioBlob}>Delete</button>
-      <button>Calculate PSS</button>
-      <audio ref={audioRef} controls />
-      <button>View Old recordings</button>
+        </button>
+        <button onClick={handlePlayAudio} disabled={!audioBlob}>Play</button>
+        <button onClick={handleSaveAudio} disabled={!audioBlob}>Save</button>
+        <button onClick={handleDeleteAudio} disabled={!audioBlob}>Delete</button>
+        <button>Calculate PSS</button>
+        <audio ref={audioRef} controls />
+      </div>
     </div>
   );
 };

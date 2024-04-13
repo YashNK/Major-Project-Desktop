@@ -6,6 +6,7 @@ import NavBar from '../Components/NavBar';
 import Google from '../assets/google.png';
 import './Login.css';
 import axios from 'axios';
+import whiteBG from '../assets/whiteBG.jpg'
 
 function Login() {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -34,11 +35,11 @@ function Login() {
     <>
       <NavBar />
       <div className='container-div'>
-        <img src='https://images2.alphacoders.com/130/1308898.jpg' className='background-wallpaper' alt='Background' />
+        <img src={whiteBG} className='background-wallpaper' alt='Background' />
         <div className="inner">
           <div className='form'>
             <h1 className='login-header'>LOGIN</h1>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form className='form1' onSubmit={handleSubmit(onSubmit)}>
               <label>Email:</label>
               <input {...register('userEmail', { required: true })} />
               {/* Display error message if email is not provided */}

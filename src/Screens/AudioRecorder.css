@@ -1,31 +1,26 @@
-.container {
+.record-container{
+    width: 100vw;
+    height: 100vh;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 50px;
   }
-  
-  button {
-    margin: 5px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-  }
-  
-  button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-  
   audio {
     margin-top: 20px;
     width: 100%;
     max-width: 400px;
   }
-  
+  .left-drawer{
+    width: 20%;
+    height: 100%;
+    background-color: rgb(247, 255, 255);
+  }
+  .right-drawer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 100%;
+    background-color: rgb(208, 217, 225);
+  }
   .error-message {
     color: red;
     margin-top: 10px;

@@ -43,7 +43,7 @@ function NavBar() {
 
       <div className='logo-div' onClick={()=>{navigate('/')}}>
           <img src={logo} className='logo'/>
-          <h1 className='header'>BETTER SPEAK</h1>
+          <h1 className='nav-title'>BETTER SPEAK</h1>
       </div>
     
       <div className='links-div'>
@@ -75,13 +75,13 @@ function NavBar() {
     <div className='mobile'>
 
       <div className='logo-div'>
-        <img src={logo} className='logo'/>
-        <h1 className='header'>BETTER SPEAK</h1>
+        <img onClick={()=>navigate('/')} src={logo} className='logo'/>
+        <h1 onClick={()=>navigate('/')} className='nav-title'>BETTER SPEAK</h1>
       </div>
 
       <div className='drawer-div'>
 
-      {isButtonVisible && <button onClick={toggleDiv}><Bars3BottomRightIcon className='w-6 rounded-sm '/></button>}
+      {isButtonVisible && <button className='bars-btn' onClick={toggleDiv}><Bars3BottomRightIcon className='bars'/></button>}
       
       {isVisible &&
       <div ref={divRef} className='drawer'>
