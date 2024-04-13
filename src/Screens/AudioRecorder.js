@@ -1,6 +1,7 @@
 import React, { useState, useRef, useContext } from 'react';
 import './AudioRecorder.css'; // Import the CSS file
 import { authContext } from '../App';
+import { useNavigate } from 'react-router-dom';
 
 const AudioRecorder = () => {
   const [recording, setRecording] = useState(false);
@@ -8,6 +9,7 @@ const AudioRecorder = () => {
   const audioRef = useRef(null);
   const [mediaRecorder, setMediaRecorder] = useState(null);
   const [authState, setAuthState] = useContext(authContext);
+  const navigate = useNavigate();
 
   const handleStartRecording = () => {
     if (!navigator.mediaDevices) {
@@ -90,7 +92,9 @@ const AudioRecorder = () => {
         <button onClick={handlePlayAudio} disabled={!audioBlob}>Play</button>
         <button onClick={handleSaveAudio} disabled={!audioBlob}>Save</button>
         <button onClick={handleDeleteAudio} disabled={!audioBlob}>Delete</button>
-        <button>Calculate PSS</button>
+        <button onClick={()=>{
+          navigate('/PSS')
+        }}>Calculate PSS</button>
         <audio ref={audioRef} controls />
       </div>
     </div>
