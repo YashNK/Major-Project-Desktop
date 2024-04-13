@@ -10,6 +10,7 @@ import SignUp from './Screens/SignUp';
 import { createContext, useState } from 'react';
 import AudioRecorder from './Screens/AudioRecorder';
 import Dashboard from './Screens/Dashboard';
+import Pss from './Screens/Pss';
 
 export const authContext = createContext();
 
@@ -28,6 +29,7 @@ function App() {
         <Route path="/signup" element={<SignUp/>} />
         <Route path="/record" element={<AudioRecorder/>}/>
         <Route path="/dashboard" element={<Dashboard/>}/>
+        <Route path="/PSS" element={<Pss/>}/>
       </Routes>
     </BrowserRouter>
     </authContext.Provider>
