@@ -9,6 +9,7 @@ import NavBar from './Components/NavBar';
 import SignUp from './Screens/SignUp';
 import { createContext, useState } from 'react';
 import AudioRecorder from './Screens/AudioRecorder';
+import Dashboard from './Screens/Dashboard';
 
 export const authContext = createContext();
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp/>} />
         <Route path="/record" element={<AudioRecorder/>}/>
+        <Route path="/dashboard" element={<Dashboard/>}/>
       </Routes>
     </BrowserRouter>
     </authContext.Provider>
