@@ -80,14 +80,7 @@ const AudioRecorder = () => {
     audioRef.current.src = '';
   };
 
-  if(authState !== true){
-    return(
-        <div>
-           YASH Make an error page
-        </div>
-    )
-  }
-else{
+ 
   return (
     <div className="record-container">
       <div className='right-drawer'>
@@ -102,7 +95,6 @@ else{
       </div>
     </div>
   );
-}
 };
 
 export default AudioRecorder;
