@@ -80,9 +80,6 @@ const AudioRecorder = () => {
 
   return (
     <div className="record-container">
-      <div className='left-drawer'>
-        hi
-      </div>
       <div className='right-drawer'>
         <button onClick={recording ? handleStopRecording : handleStartRecording}>
         {recording ? 'Stop Recording' : 'Start Recording'}
