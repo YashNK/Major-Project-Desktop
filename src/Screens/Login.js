@@ -16,12 +16,12 @@ function Login() {
   const onSubmit = (data) => {
     console.log('Form data:', data);
     axios.post('https://dull-cyan-marlin-kit.cyclic.app/api/login',data).then((response)=>{
+      setAuthState(true)
       console.log("logged in succesfully")
       console.log(response.data.user.isAdmin)
       localStorage.setItem("authenticated", true);
       localStorage.setItem("token",response.data.token)
       localStorage.setItem("isAdmin",response.data.user.isAdmin)
-      setAuthState(true)
       navigate('/record');     
     })
     .catch(()=>{
