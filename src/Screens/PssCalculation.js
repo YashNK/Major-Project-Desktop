@@ -3,7 +3,7 @@ import './PssCal.css'
 const PssCalculation = () => {
   return (
     <div className="pss-container">
-      <div className='right-drawer'>
+      <div className=''>
        pss Calculate
       </div>
     </div>

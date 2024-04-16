@@ -8,7 +8,7 @@ function NavBar() {
   const navigate = useNavigate()
 
   const navigation = [
-    { href:'/settings', icon: Cog6ToothIcon},
+    { href:'/settings', icon: Cog6ToothIcon, icon: Cog6ToothIcon},
     { name:'Login' ,href: '/login'},
   ];
 
@@ -59,14 +59,6 @@ function NavBar() {
           {item.icon && <item.icon className="icon" />}
           </NavLink>
         ))}
-          <NavLink
-          to='/login'
-          className={({isActive}) => {
-          return (isActive ? 'btn-active' : 'btn-inactive') 
-          }} 
-          >
-          <h1 className='login-btn'>LOGIN</h1>
-          </NavLink>
       </div>
     </div>
 
@@ -88,18 +80,13 @@ function NavBar() {
         {navigation.map((item) => (
           <NavLink
           to={item.href}
+          className={({isActive}) => {
+            return (isActive ? 'btn-active' : 'btn-inactive') 
+            }} 
           >
           {item.icon && <item.icon className="icon-mobile" />}
           </NavLink>
         ))}
-         <NavLink
-          to='/login'
-          className={({isActive}) => {
-          return (isActive ? 'btn-active' : 'btn-inactive') 
-          }} 
-          >
-          <h1 className='loginM-btn'>LOGIN</h1>
-          </NavLink>
       </div>}
       </div>
     </div>

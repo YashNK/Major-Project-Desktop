@@ -3,9 +3,11 @@ import './Dashboard.css'
 import ButtonGroup from '../Components/ButtonGroup'
 import AudioRecorder from './AudioRecorder'
 import PssCalculation from './PssCalculation'
+import { CalculatorIcon, MicrophoneIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 
 const buttons = [
-  "Record", "Pss"
+  {name:"Record", icon: MicrophoneIcon},
+  {name:"Pss Calculation", icon: CalculatorIcon}
 ] 
 
 const RenderComponent = ({index, setIsSelected}) => {
@@ -19,9 +21,23 @@ const RenderComponent = ({index, setIsSelected}) => {
 
 function Dashboard() {
   const [isSelected, setIsSelected] = useState(0);
+
   return (
     <div className='dash-container'>
-      <ButtonGroup buttons={buttons} isSelected={isSelected} setIsSelected={setIsSelected} />
+      <div className='dash-drawer'>
+        <div className='div1'>
+          <UserCircleIcon color='white' width={70}/>
+          <h1 className='name'>FIRST NAME</h1>
+        </div>
+        
+        <div className='div2'>
+          <ButtonGroup buttons={buttons} isSelected={isSelected} setIsSelected={setIsSelected} />
+        </div>
+
+        {/* <div className='div3'></div> */}
+      
+      </div>
+
       <RenderComponent index={isSelected} setIsSelected={setIsSelected}/>
     </div>
   )

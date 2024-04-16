@@ -3,9 +3,11 @@
     overflow-y: auto;
     overflow-x: hidden;
     perspective: 10px;
+    scroll-snap-type: y mandatory;
 }
 
 header{
+    scroll-snap-align: start;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -25,10 +27,20 @@ header{
 .background{
     transform: translateZ(-10px) scale(6);
 }
+.foreground{
+    position: absolute;
+    object-fit: cover;
+    z-index: -1;
+    width: 15%;
+}
+.foreground{
+    transform: translateZ(-2px) scale(6);
+}
+
 .black-layer{
     width: 100%;
     height: 100%;
-    background-color: rgba(0%, 0%, 0%, 0.7);
+    background-color: rgba(0%, 0%, 0%, 0.6);
     position: absolute;
     z-index: -1;
 }
@@ -56,7 +68,7 @@ header{
     padding: 0% 3% 0% 3%;
 }
 .getStarted-btn{
-    background-color: rgb(121, 51, 201);
+    background-color: rgb(201, 51, 51);
     color: white;
     width: 200px;
     height: 50px;
@@ -72,13 +84,14 @@ header{
     width: 210px;
 }
 .research-btn{
-    border: none;
-    background-color: rgb(171, 50, 190);
+
+    border: 2px solid; /* Set initial solid border */
+    border-radius: 10px;
+    background: none;
     color: white;
     width: 200px;
     height: 50px;
     margin-left: 1%;
-    border-radius: 10px;
     text-align: center;
     transition: 0.3s;
 }
@@ -87,31 +100,76 @@ header{
     color: black;
     width: 210px;
 }
-section{
+.section1{
+    scroll-snap-align: start;
+    background-color: rgb(242, 237, 237);
     width: 100%;
     height: 100%;
-    background-color: #17122b;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.sec1-header{
+    margin: 0;
+    text-align: center;
+    padding-bottom: 3%;
+}
+.cards{
     color: white;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    transform-style: preserve-3d;
-    z-index: -1;
 }
 .card1{
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
-    text-align: center;
-    background-color: white;
-    color: black;
+    background-color: rgb(142, 60, 60);
+    text-align: justify;
+    color: rgb(255, 255, 255);
     width: 90%;
-    height: 60%;
+    height: 90%;
     border-radius: 20px;
     padding: 2%;
     margin-left: 1%;
     margin-right: 1%;
 }
+.para-div{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 15;
+    -webkit-box-orient: vertical;
+}
+.para{
+    padding: 0;
+    margin: 0;
+}
+.para-bold{
+    font-weight: bolder;
+    text-decoration: underline;
+    font-style: italic;
+}
+
+.by{
+    font-style: italic;
+    color: rgb(212, 172, 172);
+    margin-top: 10px;
+    font-weight: 600;
+}
+.view{
+    margin-top: 4%;
+    border: none;
+    padding: 2%;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+.view:hover{
+    background-color: rgb(255, 0, 0);
+    color: white;
+    border-radius: 10px;
+    padding: 4%;
+}
 .section2{
+    scroll-snap-align: start;
     width: 100%;
     height: 25%;
     background-color: #000000;
@@ -120,14 +178,15 @@ section{
     align-items: center;
     justify-content: center;
 }
+.contact{
+    margin-left: 1%;
+}
 
 .wrapper::-webkit-scrollbar {
     width: 10px;
 }
-
 .wrapper::-webkit-scrollbar-track {
-    background-color: rgb(72, 105, 109);
-    -webkit-box-shadow: 0 0 6px rgba(245, 0, 0, 0.3); 
+    background-color: rgba(72, 105, 109, 100%);
     border-radius: 10px;
 }
 
@@ -136,18 +195,49 @@ section{
     border-radius: 10px;
 }
 
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.scroll-item:nth-child(1) {
+    animation-delay: 8.5s; /* Delay for the first section */
+}
+
+.scroll-item:nth-child(2) {
+    animation-delay: 8s; /* Delay for the second section */
+}
+
+.scroll-item:nth-child(3) {
+    animation-delay: 1.5s;
+}
+
+
 
 @media (max-width: 768px) {
 
     .card1{
-        background-color: white;
-        color: black;
-        margin-top: 7%;
-        margin-bottom: 7%;
+        padding: 6%;
+        margin-top: 2%;
+        margin-bottom: 2%;
         width: 70%;
+        height: 40%;
     }
 
-    section{
+    .para-div{
+        -webkit-line-clamp: 10;
+    }
+
+    .section1{
+        justify-content: start;
+    }
+        
+    .sec1-header{
+        padding-top: 13%;
+    }
+
+    .cards{
+        height: 90%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -156,6 +246,7 @@ section{
     .getStarted-btn{
         width: 150px;
         height: 50px;
+        margin-right: 5px;
     }
     .research-btn{
         width: 150px;

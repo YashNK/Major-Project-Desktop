@@ -1,12 +1,42 @@
 .button-div{
-    width: 20%;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content:space-between;
+    align-items:center;
 }
+
 .selected-btn{
-    background-color: aqua;
+    color: #d97ecf;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    border: none;
+    background: none;
+    border-radius: 5px;
+    width: 85%;
+    margin: 4%;
+    font-weight: bolder;
+    cursor: pointer;
+    transition: 0.3s;
 }
 .btn{
-    background-color: red;
+    display: flex;
+    background: none;
+    align-items: center;
+    justify-content: left;
+    transition: 0.3s;
+    cursor: pointer;
+    font-weight: bolder;
+    width: 85%;
+    margin: 4%;
+    border: none;
+    color: rgb(92, 113, 123);
+    border-radius: 5px;
+}
+
+
+.btn-icon{
+    width: 10%;
+    margin-right: 6%;
 }

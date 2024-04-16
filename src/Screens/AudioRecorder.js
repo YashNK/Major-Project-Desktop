@@ -2,9 +2,11 @@ import React, { useState, useRef, useContext } from 'react';
 import './AudioRecorder.css'; // Import the CSS file
 import { authContext } from '../App';
 import { useNavigate } from 'react-router-dom';
+import { PauseCircleIcon, PlayCircleIcon } from '@heroicons/react/24/solid';
 
 const AudioRecorder = ({setIsSelected}) => {
   const [recording, setRecording] = useState(false);
+  const [play, setPlay] = useState(false);
   const [audioBlob, setAudioBlob] = useState(null);
   const audioRef = useRef(null);
   const [mediaRecorder, setMediaRecorder] = useState(null);
@@ -61,6 +63,7 @@ const AudioRecorder = ({setIsSelected}) => {
       const audioUrl = URL.createObjectURL(audioBlob);
       audioRef.current.src = audioUrl;
       audioRef.current.play();
+      setPlay(true);
     }
   };
 
@@ -84,18 +87,44 @@ const AudioRecorder = ({setIsSelected}) => {
 
  
   return (
-    <div className="record-container">
       <div className='right-drawer'>
-        <button onClick={recording ? handleStopRecording : handleStartRecording}>
-        {recording ? 'Stop Recording' : 'Start Recording'}
-        </button>
-        <button onClick={handlePlayAudio} disabled={!audioBlob}>Play</button>
-        <button onClick={handleSaveAudio} disabled={!audioBlob}>Save</button>
-        <button onClick={handleDeleteAudio} disabled={!audioBlob}>Delete</button>
-        <button onClick={()=>setIsSelected(1)}>Calculate PSS</button>
-        <audio ref={audioRef} controls />
+
+        <h1 className='audio-title'>RECORD YOUR AUDIO</h1>
+
+        <div className='top'>
+          <div className='top-left'>
+            start your recording
+            <button className='start' onClick={recording ? handleStopRecording : handleStartRecording}>
+            {recording ? <PauseCircleIcon width={20}/> : <PlayCircleIcon width={20}/>}
+            </button>
+          </div>
+          <div className='top-right'>
+            Calculate PSS of your recording <button className='rec-btn' onClick={()=>setIsSelected(1)}>Calculate PSS</button>
+          </div>
+        </div>
+        <div className='middle'>
+        <div className='middle-left'>
+          save your recording 
+          <button className='rec-btn' onClick={handleSaveAudio} disabled={!audioBlob}>Save</button>
+        </div>
+        <div className='middle-right'>
+          Delete your recording
+          <button className='rec-btn' onClick={handleDeleteAudio} disabled={!audioBlob}>Delete</button>
+        </div>
+        </div>
+        <div className='end'>
+          <div className='end-top'>
+              <h5>
+                Play Recent Recording
+              </h5>
+              <button className='play-btn' onClick={handlePlayAudio} disabled={!audioBlob}>
+              {play ? <PauseCircleIcon width={45} color='white'/> : <PlayCircleIcon color='white' width={45}/>}</button> 
+          </div>
+          <div className='end-bottom'>
+            <audio ref={audioRef} controls />
+          </div>
+        </div>
       </div>
-    </div>
   );
 };
 
