@@ -252,5 +252,8 @@ header{
         width: 150px;
         height: 50px;
     }
+    .wrapper::-webkit-scrollbar {
+        width: 0px;
+    }
     
   }
