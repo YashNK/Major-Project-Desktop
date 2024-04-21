@@ -49,42 +49,75 @@ const AudioRecorder = ({setIsSelected}) => {
   //   });
   // }
 
-  const calculatePSS = () => {
-    let inter;
-    const audioData = new FormData();
-    audioData.append('audio', audioBlob, 'audio.wav');
-    console.log(audioData);
-    axios.post("http://127.0.0.1:8001/api/interjection",audioData).then(response => {
-      console.log(response)
-      inter = response.data.prediction;
-    }).catch(error => {
-      console.error('Error:', error);
-    });
-    let rep;
-    axios.post("http://127.0.0.1:8002/api/repetition",audioData).then(response => {
-      console.log(response);
-      rep = response.data.prediction;
-    }).catch(error => {
-      console.error('Error:', error);
-    });
-    let prol;
-    axios.post("http://127.0.0.1:8003/api/prolongation",audioData).then(response => {
-      console.log(response)
-      prol = response.data.prediction;
-      let result = [];
-    for (let i = 0; i < inter.length; i++) {
-      const sum = inter[i] + rep[i] + prol[i];
-      result.push(sum);
-  }
-  const sum = result.reduce((acc, curr) => acc + curr, 0);
-  let pssScore = (sum/185)*100;
-  console.log("the pss is:",pssScore);
-    }).catch(error => {
-      console.error('Error:', error);
-    });
-
+  // const calculatePSS = () => {
+  //   let inter;
+  //   const audioData = new FormData();
+  //   audioData.append('audio', audioBlob, 'audio.wav');
+  //   console.log(audioData);
+  //   axios.post("http://127.0.0.1:8001/api/interjection",audioData).then(response => {
+  //     console.log(response)
+  //     inter = response.data.prediction;
+  //   }).catch(error => {
+  //     console.error('Error:', error);
+  //   });
+  //   let rep;
+  //   axios.post("http://127.0.0.1:8002/api/repetition",audioData).then(response => {
+  //     console.log(response);
+  //     rep = response.data.prediction;
+  //   }).catch(error => {
+  //     console.error('Error:', error);
+  //   });
+  //   let prol;
+  //   axios.post("http://127.0.0.1:8003/api/prolongation",audioData).then(response => {
+  //     console.log(response)
+  //     prol = response.data.prediction;
+  //   }).catch(error => {
+  //     console.error('Error:', error);
+  //   });
+  //   let result = [];
+  //   for (let i = 0; i < inter.length; i++) {
+  //     const sum = inter[i] + rep[i] + prol[i];
+  //     result.push(sum);
+  // }
+  // const sum = result.reduce((acc, curr) => acc + curr, 0);
+  // let pssScore = (sum/185)*100;
+  // console.log("the pss is:",pssScore);
     
-  }
+  // }
+
+  const calculatePSS = async () => {
+    try {
+      const audioData = new FormData();
+      audioData.append('audio', audioBlob, 'audio.wav');
+      console.log(audioData);
+  
+      const [interResponse, repResponse, prolResponse] = await Promise.all([
+        axios.post("http://127.0.0.1:8001/api/interjection", audioData),
+        axios.post("http://127.0.0.1:8002/api/repetition", audioData),
+        axios.post("http://127.0.0.1:8003/api/prolongation", audioData)
+      ]);
+  
+      const inter = interResponse.data.prediction;
+      const rep = repResponse.data.prediction;
+      const prol = prolResponse.data.prediction;
+  
+      let result = [];
+      for (let i = 0; i < inter.length; i++) {
+        const sum = inter[i] + rep[i] + prol[i];
+        result.push(sum);
+      }
+  
+      const sum = result.reduce((acc, curr) => acc + curr, 0);
+      let pssScore = (sum / 185) * 100;
+      console.log("the pss is:", pssScore);
+  
+      return pssScore; // Optionally return the PSS score
+    } catch (error) {
+      console.error('Error calculating PSS:', error);
+      return null; // Handle error case
+    }
+  };
+  
 
 
     
