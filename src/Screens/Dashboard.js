@@ -7,7 +7,6 @@ import { CalculatorIcon, MicrophoneIcon, UserCircleIcon } from '@heroicons/react
 
 const buttons = [
   {name:"Record", icon: MicrophoneIcon},
-  {name:"Pss Calculation", icon: CalculatorIcon}
 ] 
 
 const RenderComponent = ({index, setIsSelected}) => {
@@ -27,7 +26,8 @@ function Dashboard() {
       <div className='dash-drawer'>
         <div className='div1'>
           <UserCircleIcon color='white' width={70}/>
-          <h1 className='name'>FIRST NAME</h1>
+          <h1 className='name'>Better Speak</h1>
+          <p className='email'>betterspeak@gmail.com</p>
         </div>
         
         <div className='div2'>

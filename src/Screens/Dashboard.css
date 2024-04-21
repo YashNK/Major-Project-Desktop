@@ -9,7 +9,7 @@
     display: flex;
     flex-direction: column;
     justify-content:start;
-    background-color: #1d193e;
+    background-image: linear-gradient(to bottom, #120f2f, #2f1c4b);
     height: 100%;
     width: 20%;
 }
@@ -25,6 +25,11 @@
     color: white;
     font-size: 20px;
     margin-top: 10px;
+}
+.email{
+    margin: 0;
+    color: white;
+    font-size: 12px;
 }
 .div2{
     margin-top: 10%;

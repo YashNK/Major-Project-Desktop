@@ -7,6 +7,10 @@
     background-color: #0a081c;
     color: white;
   }
+
+  .text-box{
+    height: 100;
+  }
   .pss-p{
     text-align: center;
     font-weight: 900;
