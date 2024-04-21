@@ -20,11 +20,52 @@ const AudioRecorder = ({setIsSelected}) => {
 
 
 
-  const TestApi = () => {
+  // const TestApi = () => {
+  //   const audioData = new FormData();
+  //   audioData.append('audio', audioBlob, 'audio.wav');
+  //   console.log(audioData);
+  //   // axios.post("http://127.0.0.1:8000/api/interjection",audioData).then(response => {
+  //   //   console.log(response)
+  //   // }).catch(error => {
+  //   //   console.error('Error:', error);
+  //   // });
+
+  //   axios.post("https://stutterdet-interjection.onrender.com/api/interjection",audioData).then(response => {
+  //     console.log(response)
+  //   }).catch(error => {
+  //     console.error('Error:', error);
+  //   });
+
+  //   axios.post("https://stutterdet-repetition.onrender.com/api/repetition",audioData).then(response => {
+  //     console.log(response)
+  //   }).catch(error => {
+  //     console.error('Error:', error);
+  //   });
+
+  //   axios.post("https://stutterdet-prolongation.onrender.com/api/prolongation",audioData).then(response => {
+  //     console.log(response)
+  //   }).catch(error => {
+  //     console.error('Error:', error);
+  //   });
+  // }
+
+  const calculatePSS = () => {
     const audioData = new FormData();
-    audioData.append('audio', audioBlob, 'audio.wav');
+    // audioData.append('audio', audioBlob, 'audio.wav');
     console.log(audioData);
-    axios.post("http://127.0.0.1:8000/api/interjection",audioData).then(response => {
+    axios.post("http://127.0.0.1:8001/api/interjection",audioData).then(response => {
+      console.log(response)
+    }).catch(error => {
+      console.error('Error:', error);
+    });
+
+    axios.post("http://127.0.0.1:8002/api/repetition",audioData).then(response => {
+      console.log(response)
+    }).catch(error => {
+      console.error('Error:', error);
+    });
+
+    axios.post("http://127.0.0.1:8003/api/prolongation",audioData).then(response => {
       console.log(response)
     }).catch(error => {
       console.error('Error:', error);
@@ -111,7 +152,15 @@ const AudioRecorder = ({setIsSelected}) => {
       <div className='right-drawer'>
 
         <h1 className='audio-title'>RECORD YOUR AUDIO</h1>
-
+        <div>
+        The sun shone brightly, casting a warm glow over the small town.
+         Children played in the park, their laughter echoing through the air.
+          The park was a favorite spot for families, offering a place to relax and enjoy the outdoors.
+           As the day progressed, the park became more crowded, with people gathering to enjoy the beautiful weather.
+            The sound of children's voices filled the air, punctuated by the occasional 'um' or 'uh' as they tried to find the right words.
+             The park was a place where everyone felt welcome, a place where friendships were made and memories were created.
+              Despite the noise and activity, the park remained a peaceful oasis in the heart of the town
+        </div>
         <div className='top'>
           <div className='top-left'>
             start your recording
@@ -120,7 +169,10 @@ const AudioRecorder = ({setIsSelected}) => {
             </button>
           </div>
           <div className='top-right'>
-            Calculate PSS of your recording <button className='rec-btn' onClick={()=>setIsSelected(1)}>Calculate PSS</button>
+            Calculate PSS of your recording <button className='rec-btn' onClick={()=>{
+              calculatePSS()
+              // setIsSelected(1)
+              }}>Calculate PSS</button>
           </div>
         </div>
         <div className='middle'>
@@ -140,7 +192,6 @@ const AudioRecorder = ({setIsSelected}) => {
               </h5>
               <button className='play-btn' onClick={handlePlayAudio} disabled={!audioBlob}>
               {play ? <PauseCircleIcon width={45} color='white'/> : <PlayCircleIcon color='white' width={45}/>}</button> 
-              <button onClick={()=>{TestApi()}}>Test API</button>
           </div>
           <div className='end-bottom'>
             <audio ref={audioRef} controls />
