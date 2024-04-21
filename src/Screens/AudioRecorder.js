@@ -71,11 +71,7 @@ const AudioRecorder = ({setIsSelected}) => {
     axios.post("http://127.0.0.1:8003/api/prolongation",audioData).then(response => {
       console.log(response)
       prol = response.data.prediction;
-    }).catch(error => {
-      console.error('Error:', error);
-    });
-
-    let result = [];
+      let result = [];
     for (let i = 0; i < inter.length; i++) {
       const sum = inter[i] + rep[i] + prol[i];
       result.push(sum);
@@ -83,8 +79,15 @@ const AudioRecorder = ({setIsSelected}) => {
   const sum = result.reduce((acc, curr) => acc + curr, 0);
   let pssScore = (sum/185)*100;
   console.log("the pss is:",pssScore);
+    }).catch(error => {
+      console.error('Error:', error);
+    });
+
+    
   }
 
+
+    
   const handleStartRecording = async () => {
 
 
