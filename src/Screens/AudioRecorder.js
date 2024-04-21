@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import {MediaRecorder, register} from 'extendable-media-recorder';
 import {connect} from 'extendable-media-recorder-wav-encoder';
 import { PauseCircleIcon, PlayCircleIcon } from '@heroicons/react/24/solid';
+import axios from 'axios';
 
 await register(await connect());
 
@@ -19,7 +20,16 @@ const AudioRecorder = ({setIsSelected}) => {
 
 
 
-  
+  const TestApi = () => {
+    const audioData = new FormData();
+    audioData.append('audio', audioBlob, 'audio.wav');
+    console.log(audioData);
+    axios.post("http://127.0.0.1:8000/api/interjection",audioData).then(response => {
+      console.log(response)
+    }).catch(error => {
+      console.error('Error:', error);
+    });
+  }
 
   const handleStartRecording = async () => {
 
@@ -130,8 +140,7 @@ const AudioRecorder = ({setIsSelected}) => {
               </h5>
               <button className='play-btn' onClick={handlePlayAudio} disabled={!audioBlob}>
               {play ? <PauseCircleIcon width={45} color='white'/> : <PlayCircleIcon color='white' width={45}/>}</button> 
-          
-
+              <button onClick={()=>{TestApi()}}>Test API</button>
           </div>
           <div className='end-bottom'>
             <audio ref={audioRef} controls />
