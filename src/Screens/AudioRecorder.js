@@ -72,7 +72,7 @@ const AudioRecorder = ({setIsSelected}) => {
       const url = URL.createObjectURL(audioBlob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'recorded_audio.wav';
+      a.download = 'Recorded_Audio.wav';
       document.body.appendChild(a);
       a.click();
       URL.revokeObjectURL(url);

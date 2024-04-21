@@ -3,8 +3,9 @@ import './PssCal.css'
 const PssCalculation = () => {
   return (
     <div className="pss-container">
-      <div className=''>
-       pss Calculate
+      <div className='pss-card'>
+       PSS CALCULATION
+       <p className='pss-p'>56%</p>
       </div>
     </div>
   )

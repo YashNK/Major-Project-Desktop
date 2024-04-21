@@ -23,30 +23,30 @@ const SignUp = () => {
 
       <img src={sign} className='sign-wall' alt='Background' />
     <div className='sign-form'>
-
+    <h1 className='sign-title'>Sign Up</h1>
       <form className='f1' onSubmit={handleSubmit(onSubmit)}>
-        <label>Name:</label>
-        <input
+        <label className='settings-label'>Name:</label>
+        <input className='settings-input'
           type="text"
           {...register('userName', { required: true })}
           />
         {errors.firstName && <span className="error">First Name is required</span>}
-        <label>Email:</label>
-        <input
+        <label className='settings-label'>Email:</label>
+        <input className='settings-input'
           type="email"
           {...register('userEmail', { required: true })}
           placeholder="Email"
           />
         {errors.email && <span className="error">Email is required</span>}
-        <label>password:</label>
-        <input
+        <label className='settings-label'>password:</label>
+        <input className='settings-input'
           type="password"
           {...register('userPassword', { required: true })}
           placeholder="Password"
           />
         {errors.password && <span className="error">Password is required</span>}
         
-        <button type="submit">Sign Up</button>
+        <button className='settings-button' type="submit">Sign Up</button>
 
       </form>
           </div>

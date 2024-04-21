@@ -7,3 +7,13 @@
     background-color: #0a081c;
     color: white;
   }
+  .pss-p{
+    text-align: center;
+    font-weight: 900;
+    margin: 0;
+  }
+  .pss-card{
+    background-color: #4B5563;
+    padding: 8%;
+    border-radius: 10px;
+  }
