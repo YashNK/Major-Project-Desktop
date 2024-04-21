@@ -51,7 +51,7 @@ const AudioRecorder = ({setIsSelected}) => {
 
   const calculatePSS = () => {
     const audioData = new FormData();
-    // audioData.append('audio', audioBlob, 'audio.wav');
+    audioData.append('audio', audioBlob, 'audio.wav');
     console.log(audioData);
     axios.post("http://127.0.0.1:8001/api/interjection",audioData).then(response => {
       console.log(response)

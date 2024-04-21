@@ -83,28 +83,28 @@
 
 
 
-//   const calculatePSS = () => {
-//     const audioData = new FormData();
-//     // audioData.append('audio', audioBlob, 'audio.wav');
-//     console.log(audioData);
-//     axios.post("http://127.0.0.1:8001/api/interjection",audioData).then(response => {
-//       console.log(response)
-//     }).catch(error => {
-//       console.error('Error:', error);
-//     });
+  // const calculatePSS = () => {
+  //   const audioData = new FormData();
+  //   // audioData.append('audio', audioBlob, 'audio.wav');
+  //   console.log(audioData);
+  //   axios.post("http://127.0.0.1:8001/api/interjection",audioData).then(response => {
+  //     console.log(response)
+  //   }).catch(error => {
+  //     console.error('Error:', error);
+  //   });
 
-//     axios.post("http://127.0.0.1:8002/api/repetition",audioData).then(response => {
-//       console.log(response)
-//     }).catch(error => {
-//       console.error('Error:', error);
-//     });
+  //   axios.post("http://127.0.0.1:8002/api/repetition",audioData).then(response => {
+  //     console.log(response)
+  //   }).catch(error => {
+  //     console.error('Error:', error);
+  //   });
 
-//     axios.post("http://127.0.0.1:8003/api/prolongation",audioData).then(response => {
-//       console.log(response)
-//     }).catch(error => {
-//       console.error('Error:', error);
-//     });
-//   }
+  //   axios.post("http://127.0.0.1:8003/api/prolongation",audioData).then(response => {
+  //     console.log(response)
+  //   }).catch(error => {
+  //     console.error('Error:', error);
+  //   });
+  // }
 
 //   return (
 //     <div>
