@@ -2,7 +2,11 @@ import React, { useState, useRef, useContext } from 'react';
 import './AudioRecorder.css'; // Import the CSS file
 import { authContext } from '../App';
 import { useNavigate } from 'react-router-dom';
+import {MediaRecorder, register} from 'extendable-media-recorder';
+import {connect} from 'extendable-media-recorder-wav-encoder';
 import { PauseCircleIcon, PlayCircleIcon } from '@heroicons/react/24/solid';
+
+await register(await connect());
 
 const AudioRecorder = ({setIsSelected}) => {
   const [recording, setRecording] = useState(false);
@@ -13,7 +17,13 @@ const AudioRecorder = ({setIsSelected}) => {
   const [authState, setAuthState] = useContext(authContext);
   const navigate = useNavigate();
 
-  const handleStartRecording = () => {
+
+
+  
+
+  const handleStartRecording = async () => {
+
+
     if (!navigator.mediaDevices) {
       alert('Audio recording is not supported on this browser.');
       return;
@@ -22,14 +32,15 @@ const AudioRecorder = ({setIsSelected}) => {
     const constraints = {
       audio: {
         sampleRate: 16000, // Set the desired sampling rate to 16000 Hz
-        channelCount: 1, // Mono audio
-        mimeType: 'audio/wav', // Specify the audio format (WAV in this case)
+        echoCancellation: true,
       },
     };
 
     navigator.mediaDevices.getUserMedia(constraints)
       .then((stream) => {
-        const recorder = new MediaRecorder(stream);
+        const recorder = new MediaRecorder(stream, {
+          mimeType: 'audio/wav',
+        });
         const chunks = [];
 
         recorder.ondataavailable = (e) => {
@@ -119,6 +130,8 @@ const AudioRecorder = ({setIsSelected}) => {
               </h5>
               <button className='play-btn' onClick={handlePlayAudio} disabled={!audioBlob}>
               {play ? <PauseCircleIcon width={45} color='white'/> : <PlayCircleIcon color='white' width={45}/>}</button> 
+          
+
           </div>
           <div className='end-bottom'>
             <audio ref={audioRef} controls />
