@@ -131,6 +131,7 @@ const AudioRecorder = ({setIsSelected}) => {
   };
 
   const handleDeleteAudio = () => {
+    setPss('0');
     setAudioBlob(null);
     audioRef.current.src = '';
   };
