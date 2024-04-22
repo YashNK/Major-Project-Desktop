@@ -6,11 +6,13 @@
   background-image: linear-gradient(to bottom, #0a081c, #11052a);
   color: white;
   text-transform: capitalize;
+  overflow: hidden;
 }
 .audio-title{
   padding-top: 5%;
   font-weight: 900;
   padding-left: 3.8%;
+  width: 60%;
 }
 .top{
   display: flex;
@@ -70,8 +72,8 @@
 }
 .pss-div{
   height: 45%;
-  background-color: #254f8a;
-  padding: 3%;
+  background-color: #4B5563;
+  padding: 2.5%;
   border-radius: 10px;
 }
 .pss{
@@ -93,7 +95,7 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  padding: 3%;
+  padding: 2.5%;
   border-radius: 10px;
   border: 1px solid;
 }
@@ -103,7 +105,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  padding: 3%;
+  padding: 2.5%;
   border-radius: 10px;
   border: 1px solid;
 }
@@ -113,7 +115,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  padding: 3%;
+  padding: 2.5%;
   border-radius: 10px;
   border: 1px solid;
 } 
@@ -123,10 +125,10 @@
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  margin-top: 90px;
+  margin-top: 50px;
 }
 .end-bottom{
-  width: 93%;
+  width: 95%;
 }
 .bold-text{
   font-weight: bold;

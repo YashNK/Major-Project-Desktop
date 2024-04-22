@@ -21,7 +21,7 @@ const AudioRecorder = ({setIsSelected}) => {
 
   const calculatePSS = async () => {
     try {
-      setPss('You Better Wait...');
+      setPss('Loading...');
       //setPss('Loading...');
       const audioData = new FormData();
       audioData.append('audio', audioBlob, 'audio.wav');
